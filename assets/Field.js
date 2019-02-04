@@ -1,18 +1,7 @@
 
 class Field{
-  /*
-  var numNeighbors = 4;
-  var numNodes;
-  float xOffset, yOffset, xMax, yMax;
-  float speedDif = 30;
-  float speedScale = 7;
-  float r, g, b;
-  Particle[] particles; 
-  var maxDist = 1000;
-  boolean sameDir;
-  */
-  
-  constructor (xOffset, yOffset, xMax, yMax, sameDir, numNodes){
+
+  constructor (xOffset, yOffset, xMax, yMax, sameDir, numNodes, numNeighbors){
     var self = this;
     this.speedDif = 30;
     this.speedScale = 7;
@@ -28,7 +17,7 @@ class Field{
     this.b = random(255);
     var i;
     for(i = 0; i < numNodes; i ++){
-      this.particles[i] = new Particle(xMax, yMax, this.speedDif, this.speedScale, this.numNeighbors, sameDir, numNodes, this.particles);
+      this.particles[i] = new Particle(xMax, yMax, this.speedDif, this.speedScale, numNeighbors, sameDir, numNodes, this.particles);
     }
   }
   
@@ -37,6 +26,11 @@ class Field{
     var x0, y0, x1, y1, x2, y2, x3, y3;
     var numNodes = this.numNodes;
     var particles = this.particles;
+    var xOffset = this.xOffset;
+    var yOffset = this.yOffset;
+    var r = this.r;
+    var g = this.g;
+    var b = this.b;
     for(var i = 0; i < numNodes; i++){
       x0 = particles[i].neighbors[0].x;
       x1 = particles[i].neighbors[1].x;
