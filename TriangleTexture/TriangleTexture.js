@@ -1,7 +1,9 @@
 var rows = 5;
 var cols = 5;
 var fields = new Array(rows * cols)
-var fieldSize = 100
+var fieldSize = 70
+var xOff = 20
+var yOff = 20
 
 function setup(){
   createCanvas(1000, 1000);
@@ -16,7 +18,7 @@ function setup(){
 }
 
 function draw(){
-  translate(mouseX/15, mouseY/15);
+  translate(mouseX/15 + xOff, mouseY/15 + yOff);
   applyMatrix(1, 0, 0, 1, mouseX/2000, 0);
   clear();
   for(var i = 0; i < fields.length; i++){
